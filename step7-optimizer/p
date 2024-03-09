@@ -1,0 +1,190 @@
+; Symbol table GLOBAL
+; Function: INT main([])
+
+; Symbol table main
+; name a type INT location -4
+; name b type FLOAT location -8
+; name p type PTR to INT location -12
+; name q type PTR to FLOAT location -16
+
+Function main
+	Statement list:
+		AssignNode:
+			VarNode: a
+			IntLitNode: 2
+		AssignNode:
+			VarNode: b
+			FloatLitNode: 3.5
+		AssignNode:
+			VarNode: p
+			AddrOf: 
+				VarNode: a
+		AssignNode:
+			VarNode: q
+			AddrOf: 
+				VarNode: b
+		If 
+			Cond: LT
+				PtrDeref: 
+					VarNode: p
+				PtrDeref: 
+					VarNode: q
+			Statement list:
+				Write: 
+					PtrDeref: 
+						VarNode: q
+			Statement list:
+		Return: 
+			IntLitNode: 0
+Assign: left type: INT Right type: INT
+Assign: ;Current temp: null
+;IR Code: 
+LI t1, 2
+SW t1, -4(fp)
+
+Assign: left type: FLOAT Right type: FLOAT
+Assign: ;Current temp: null
+;IR Code: 
+FIMM.S f1, 3.5
+FSW f1, -8(fp)
+
+AddrOf: Type PTR to INT
+AddrOf: ;Current temp: t2
+;IR Code: 
+ADDI t2, fp, -4
+
+Assign: left type: PTR Right type: PTR
+Assign: ptr!
+Assign: ;Current temp: null
+;IR Code: 
+ADDI t2, fp, -4
+SW t2, -12(fp)
+
+AddrOf: Type PTR to FLOAT
+AddrOf: ;Current temp: t3
+;IR Code: 
+ADDI t3, fp, -8
+
+Assign: left type: PTR Right type: PTR
+Assign: ptr!
+Assign: ;Current temp: null
+;IR Code: 
+ADDI t3, fp, -8
+SW t3, -16(fp)
+
+PtrDeref: node's innertype = INT
+PtrDeref: Type INT
+PtrDeref: ;Current temp: t4
+;IR Code: 
+LW t4, -12(fp)
+
+PtrDeref: node's innertype = FLOAT
+PtrDeref: Type FLOAT
+PtrDeref: ;Current temp: t5
+;IR Code: 
+LW t5, -16(fp)
+
+rvalify lco.type.type: INT
+rvalify lco.type.type: FLOAT
+PtrDeref: node's innertype = FLOAT
+PtrDeref: Type FLOAT
+PtrDeref: ;Current temp: t7
+;IR Code: 
+LW t7, -16(fp)
+
+rvalify lco.type.type: FLOAT
+ReturnNode: retExpr's type: INT
+.section .text
+;Current temp: null
+;IR Code: 
+MV fp, sp
+JR func_main
+HALT
+
+func_main:
+SW fp, 0(sp)
+MV fp, sp
+ADDI sp, sp, -4
+ADDI sp, sp, -16
+SW t1, 0(sp)
+ADDI sp, sp, -4
+SW t2, 0(sp)
+ADDI sp, sp, -4
+SW t3, 0(sp)
+ADDI sp, sp, -4
+SW t4, 0(sp)
+ADDI sp, sp, -4
+SW t5, 0(sp)
+ADDI sp, sp, -4
+SW t6, 0(sp)
+ADDI sp, sp, -4
+SW t7, 0(sp)
+ADDI sp, sp, -4
+SW t8, 0(sp)
+ADDI sp, sp, -4
+SW t9, 0(sp)
+ADDI sp, sp, -4
+FSW f1, 0(sp)
+ADDI sp, sp, -4
+FSW f2, 0(sp)
+ADDI sp, sp, -4
+FSW f3, 0(sp)
+ADDI sp, sp, -4
+FSW f4, 0(sp)
+ADDI sp, sp, -4
+LI t1, 2
+SW t1, -4(fp)
+FIMM.S f1, 3.5
+FSW f1, -8(fp)
+ADDI t2, fp, -4
+SW t2, -12(fp)
+ADDI t3, fp, -8
+SW t3, -16(fp)
+LW t4, -12(fp)
+LW t6, 0(t4)
+LW t5, -16(fp)
+FLW f2, 0(t5)
+IMOVF.S f3, t6
+FLT.S t8, f3, f2
+BEQ t8, x0, out_1
+LW t7, -16(fp)
+FLW f4, 0(t7)
+PUTF f4
+out_1:
+LI t9, 0
+SW t9, 8(fp)
+J func_ret_main
+func_ret_main:
+ADDI sp, sp, 4
+FLW f4, 0(sp)
+ADDI sp, sp, 4
+FLW f3, 0(sp)
+ADDI sp, sp, 4
+FLW f2, 0(sp)
+ADDI sp, sp, 4
+FLW f1, 0(sp)
+ADDI sp, sp, 4
+LW t9, 0(sp)
+ADDI sp, sp, 4
+LW t8, 0(sp)
+ADDI sp, sp, 4
+LW t7, 0(sp)
+ADDI sp, sp, 4
+LW t6, 0(sp)
+ADDI sp, sp, 4
+LW t5, 0(sp)
+ADDI sp, sp, 4
+LW t4, 0(sp)
+ADDI sp, sp, 4
+LW t3, 0(sp)
+ADDI sp, sp, 4
+LW t2, 0(sp)
+ADDI sp, sp, 4
+LW t1, 0(sp)
+MV sp, fp
+LW fp, 0(fp)
+RET
+
+
+
+.section .strings

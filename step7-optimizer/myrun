@@ -1,0 +1,5 @@
+clear
+make clean
+make
+./runme tests/test5.uC p
+python3 RiscSim/driver.py p

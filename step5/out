@@ -1,0 +1,530 @@
+; Symbol table GLOBAL
+; name welcome type STRING location 0x10000000 value "Compute GCD(x, y) using Euclid's algorithm \n"
+; name xprompt type STRING location 0x10000004 value "Enter x: "
+; name yprompt type STRING location 0x10000008 value "Enter y: "
+; name result type STRING location 0x1000000c value "GCD(x, y) = "
+; name x type INT location 0x20000000
+; name y type INT location 0x20000004
+; name mod type INT location 0x20000008
+; name tmp type INT location 0x2000000c
+; name prompt type STRING location 0x10000010 value "Enter a number: "
+; Function: INT main([])
+
+; Symbol table main
+
+In BinaryOpNode inst = SUB $t1, $gx, $gy
+[$gwelcome, $gxprompt, $gyprompt, $gresult, $gx, $gy, $gmod, $gtmp, $gprompt]	
+[$gwelcome, $gxprompt, $gyprompt, $gresult, $gx, $gmod, $gtmp, $gprompt]	
+[$gwelcome, $gxprompt, $gyprompt, $gresult, $gx, $gmod, $gtmp, $gprompt]	
+[$gwelcome, $gxprompt, $gyprompt, $gresult, $gmod, $gtmp, $gprompt]	
+
+Instruction :PUTS $gwelcome
+came to puts
+
+Instruction :PUTS $gxprompt
+came to puts
+
+Instruction :GETI $gx
+Allocate: this.src1Reg null
+
+Instruction :PUTS $gyprompt
+came to puts
+
+Instruction :GETI $gy
+Allocate: this.src1Reg null
+Entering reg save
+x0 =no
+x1 =no
+x2 =no
+x3 =address
+x4 =$gx
+Saving $gx
+x5 =$gy
+Saving $gy
+x6 =empty
+x7 =empty
+x8 =no
+x9 =empty
+x10 =empty
+x11 =empty
+x12 =empty
+x13 =empty
+x14 =empty
+x15 =empty
+x16 =empty
+x17 =empty
+x18 =empty
+x19 =empty
+x20 =empty
+x21 =empty
+x22 =empty
+x23 =empty
+x24 =empty
+x25 =empty
+x26 =empty
+x27 =empty
+x28 =empty
+x29 =empty
+x30 =empty
+x31 =empty
+[$gwelcome, $gxprompt, $gyprompt, $gresult, $gx, $gy, $gmod, $gtmp, $gprompt]	
+
+Instruction :loop_2:
+
+Instruction :BEQ $gx, 0, out_3
+Allocate: this.src1Reg null
+Allocate: this.src1Reg $gx
+freeing: 5
+Freed: 0 in x5
+Entering reg save
+x0 =no
+x1 =no
+x2 =no
+x3 =address
+x4 =$gx
+x5 =empty
+x6 =empty
+x7 =empty
+x8 =no
+x9 =empty
+x10 =empty
+x11 =empty
+x12 =empty
+x13 =empty
+x14 =empty
+x15 =empty
+x16 =empty
+x17 =empty
+x18 =empty
+x19 =empty
+x20 =empty
+x21 =empty
+x22 =empty
+x23 =empty
+x24 =empty
+x25 =empty
+x26 =empty
+x27 =empty
+x28 =empty
+x29 =empty
+x30 =empty
+x31 =empty
+
+Instruction :BGT $gx, $gy, out_1
+Allocate: this.src1Reg null
+Allocate: this.src1Reg $gx
+Entering reg save
+x0 =no
+x1 =no
+x2 =no
+x3 =address
+x4 =$gx
+x5 =$gy
+x6 =empty
+x7 =empty
+x8 =no
+x9 =empty
+x10 =empty
+x11 =empty
+x12 =empty
+x13 =empty
+x14 =empty
+x15 =empty
+x16 =empty
+x17 =empty
+x18 =empty
+x19 =empty
+x20 =empty
+x21 =empty
+x22 =empty
+x23 =empty
+x24 =empty
+x25 =empty
+x26 =empty
+x27 =empty
+x28 =empty
+x29 =empty
+x30 =empty
+x31 =empty
+[$gwelcome, $gxprompt, $gyprompt, $gresult, $gx, $gy, $gmod, $gtmp, $gprompt]	
+[$gwelcome, $gxprompt, $gyprompt, $gresult, $gx, $gmod, $gtmp, $gprompt]	
+
+Instruction :MV $gtmp, $gx
+Allocate: this.src1Reg null
+freeing: 4
+Freed: $gx in x4
+Allocate: this.src1Reg null
+
+Instruction :MV $gx, $gy
+Allocate: this.src1Reg null
+freeing: 5
+Freed: $gy in x5
+Allocate: this.src1Reg null
+
+Instruction :MV $gy, $gtmp
+Allocate: this.src1Reg null
+Entering reg save
+x0 =no
+x1 =no
+x2 =no
+x3 =address
+x4 =$gtmp
+Saving $gtmp
+x5 =$gx
+Saving $gx
+x6 =$gy
+Saving $gy
+x7 =empty
+x8 =no
+x9 =empty
+x10 =empty
+x11 =empty
+x12 =empty
+x13 =empty
+x14 =empty
+x15 =empty
+x16 =empty
+x17 =empty
+x18 =empty
+x19 =empty
+x20 =empty
+x21 =empty
+x22 =empty
+x23 =empty
+x24 =empty
+x25 =empty
+x26 =empty
+x27 =empty
+x28 =empty
+x29 =empty
+x30 =empty
+x31 =empty
+
+Instruction :out_1:
+Entering reg save
+x0 =no
+x1 =no
+x2 =no
+x3 =address
+x4 =empty
+x5 =empty
+x6 =empty
+x7 =empty
+x8 =no
+x9 =empty
+x10 =empty
+x11 =empty
+x12 =empty
+x13 =empty
+x14 =empty
+x15 =empty
+x16 =empty
+x17 =empty
+x18 =empty
+x19 =empty
+x20 =empty
+x21 =empty
+x22 =empty
+x23 =empty
+x24 =empty
+x25 =empty
+x26 =empty
+x27 =empty
+x28 =empty
+x29 =empty
+x30 =empty
+x31 =empty
+[$gwelcome, $gxprompt, $gyprompt, $gresult, $gx, $gy, $gmod, $gtmp, $gprompt]	
+
+Instruction :loop_1:
+
+Instruction :BLT $gx, $gy, out_2
+Allocate: this.src1Reg null
+Allocate: this.src1Reg $gx
+Entering reg save
+x0 =no
+x1 =no
+x2 =no
+x3 =address
+x4 =$gx
+x5 =$gy
+x6 =empty
+x7 =empty
+x8 =no
+x9 =empty
+x10 =empty
+x11 =empty
+x12 =empty
+x13 =empty
+x14 =empty
+x15 =empty
+x16 =empty
+x17 =empty
+x18 =empty
+x19 =empty
+x20 =empty
+x21 =empty
+x22 =empty
+x23 =empty
+x24 =empty
+x25 =empty
+x26 =empty
+x27 =empty
+x28 =empty
+x29 =empty
+x30 =empty
+x31 =empty
+[$gwelcome, $gxprompt, $gyprompt, $gresult, $gx, $gy, $gmod, $gtmp, $gprompt]	
+[$gwelcome, $gxprompt, $gyprompt, $gresult, $gx, $gy, $gmod, $gtmp, $gprompt]	
+
+Instruction :SUB $t1, $gx, $gy
+Allocate: this.src1Reg null
+Allocate: this.src1Reg $gx
+freeing: 4
+Freed: $gx in x4
+Allocate: this.src1Reg *
+
+Instruction :MV $gx, $t1
+freeing: 4
+Freed: $t1 in x4
+Allocate: this.src1Reg *
+
+Instruction :J loop_1
+Entering reg save
+x0 =no
+x1 =no
+x2 =no
+x3 =address
+x4 =$gx
+Saving $gx
+x5 =$gy
+x6 =empty
+x7 =empty
+x8 =no
+x9 =empty
+x10 =empty
+x11 =empty
+x12 =empty
+x13 =empty
+x14 =empty
+x15 =empty
+x16 =empty
+x17 =empty
+x18 =empty
+x19 =empty
+x20 =empty
+x21 =empty
+x22 =empty
+x23 =empty
+x24 =empty
+x25 =empty
+x26 =empty
+x27 =empty
+x28 =empty
+x29 =empty
+x30 =empty
+x31 =empty
+[$gwelcome, $gxprompt, $gyprompt, $gresult, $gx, $gy, $gmod, $gtmp, $gprompt]	
+[$gwelcome, $gxprompt, $gyprompt, $gresult, $gx, $gy, $gmod, $gtmp, $gprompt]	
+[$gwelcome, $gxprompt, $gyprompt, $gresult, $gx, $gy, $gmod, $gtmp, $gprompt]	
+
+Instruction :out_2:
+
+Instruction :PUTI $gx
+Allocate: this.src1Reg null
+
+Instruction :PUTI $gy
+Allocate: this.src1Reg null
+
+Instruction :J loop_2
+Entering reg save
+x0 =no
+x1 =no
+x2 =no
+x3 =address
+x4 =$gx
+x5 =$gy
+x6 =empty
+x7 =empty
+x8 =no
+x9 =empty
+x10 =empty
+x11 =empty
+x12 =empty
+x13 =empty
+x14 =empty
+x15 =empty
+x16 =empty
+x17 =empty
+x18 =empty
+x19 =empty
+x20 =empty
+x21 =empty
+x22 =empty
+x23 =empty
+x24 =empty
+x25 =empty
+x26 =empty
+x27 =empty
+x28 =empty
+x29 =empty
+x30 =empty
+x31 =empty
+[$gwelcome, $gxprompt, $gyprompt, $gresult, $gx, $gy, $gmod, $gtmp, $gprompt]	
+[$gwelcome, $gxprompt, $gyprompt, $gresult, $gx, $gy, $gmod, $gtmp, $gprompt]	
+[$gwelcome, $gxprompt, $gyprompt, $gresult, $gx, $gy, $gmod, $gtmp, $gprompt]	
+[$gwelcome, $gxprompt, $gyprompt, $gresult, $gx, $gy, $gmod, $gtmp, $gprompt]	
+
+Instruction :out_3:
+
+Instruction :PUTS $gresult
+came to puts
+
+Instruction :PUTI $gy
+Allocate: this.src1Reg null
+
+Instruction :MV $l8, 0
+Allocate: this.src1Reg null
+freeing: 5
+Freed: 0 in x5
+Allocate: this.src1Reg null
+
+Instruction :J func_ret_main
+Entering reg save
+x0 =no
+x1 =no
+x2 =no
+x3 =address
+x4 =$gy
+x5 =$l8
+x6 =empty
+x7 =empty
+x8 =no
+x9 =empty
+x10 =empty
+x11 =empty
+x12 =empty
+x13 =empty
+x14 =empty
+x15 =empty
+x16 =empty
+x17 =empty
+x18 =empty
+x19 =empty
+x20 =empty
+x21 =empty
+x22 =empty
+x23 =empty
+x24 =empty
+x25 =empty
+x26 =empty
+x27 =empty
+x28 =empty
+x29 =empty
+x30 =empty
+x31 =empty
+.section .text
+;Current temp: null
+;IR Code: 
+MV fp, sp
+JR func_main
+HALT
+;
+func_main:
+SW fp, 0(sp)
+MV fp, sp
+ADDI sp, sp, 0
+SW x4, 0(sp)
+ADDI sp, sp, -4
+SW x5, 0(sp)
+ADDI sp, sp, -4
+SW x6, 0(sp)
+ADDI sp, sp, -4
+LA x3, 0x10000000
+PUTS x3
+LA x3, 0x10000004
+PUTS x3
+GETI x4
+LA x3, 0x10000008
+PUTS x3
+GETI x5
+LA x3, 0x20000000
+SW x4, 0(x3)
+LA x3, 0x20000004
+SW x5, 0(x3)
+loop_2:
+LA x3, 0x20000000
+LW x4, 0(x3)
+LI x5, 0
+BEQ x4, x5, out_3
+LA x3, 0x20000000
+LW x4, 0(x3)
+LA x3, 0x20000004
+LW x5, 0(x3)
+BGT x4, x5, out_1
+LA x3, 0x20000000
+LW x4, 0(x3)
+MV x4, x4
+LA x3, 0x20000004
+LW x5, 0(x3)
+MV x5, x5
+MV x6, x4
+LA x3, 0x2000000c
+SW x4, 0(x3)
+LA x3, 0x20000000
+SW x5, 0(x3)
+LA x3, 0x20000004
+SW x6, 0(x3)
+out_1:
+loop_1:
+LA x3, 0x20000000
+LW x4, 0(x3)
+LA x3, 0x20000004
+LW x5, 0(x3)
+BLT x4, x5, out_2
+LA x3, 0x20000000
+LW x4, 0(x3)
+LA x3, 0x20000004
+LW x5, 0(x3)
+SUB x4, x4, x5
+MV x4, x4
+LA x3, 0x20000000
+SW x4, 0(x3)
+J loop_1
+out_2:
+LA x3, 0x20000000
+LW x4, 0(x3)
+PUTI x4
+LA x3, 0x20000004
+LW x5, 0(x3)
+PUTI x5
+J loop_2
+out_3:
+LA x3, 0x1000000c
+PUTS x3
+LA x3, 0x20000004
+LW x4, 0(x3)
+PUTI x4
+LI x5, 0
+MV x5, x5
+SW x5, 8(fp)
+J func_ret_main
+func_ret_main:
+ADDI sp, sp, 4
+LW x6, 0(sp)
+ADDI sp, sp, 4
+LW x5, 0(sp)
+ADDI sp, sp, 4
+LW x4, 0(sp)
+MV sp, fp
+LW fp, 0(fp)
+RET
+;
+
+
+.section .strings
+0x10000000 "Compute GCD(x, y) using Euclid's algorithm \n"
+0x10000004 "Enter x: "
+0x10000008 "Enter y: "
+0x1000000c "GCD(x, y) = "
+0x10000010 "Enter a number: "

@@ -1,0 +1,19 @@
+; Symbol table GLOBAL
+; name curVal type FLOAT location 0x20000000
+; name x type FLOAT location 0x20000004
+; name degree type INT location 0x20000008
+; Function: FLOAT poly([FLOAT, FLOAT, INT])
+; name val type STRING location 0x10000000 value "Enter x value to evaluate: "
+; name degreePrompt type STRING location 0x10000004 value "Enter a degree: "
+; name prompt type STRING location 0x10000008 value "Enter coefficient: "
+; Function: INT main([])
+
+; Symbol table main
+; name cur type INT location -4
+
+; Symbol table poly
+; name degree type INT location 12
+; name x type FLOAT location 16
+; name curVal type FLOAT location 20
+; name coeff type FLOAT location -4
+

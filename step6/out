@@ -1,0 +1,1249 @@
+; Symbol table GLOBAL
+; name querysize type STRING location 0x10000000 value "Enter size: "
+; name prompt type STRING location 0x10000004 value "Enter number: "
+; name sorting type STRING location 0x10000008 value "Sorting ..."
+; Function: VOID swap([PTR to FLOAT, PTR to FLOAT])
+; Function: PTR to FLOAT allocarray([INT])
+; Function: VOID readarray([PTR to FLOAT, INT])
+; Function: VOID printarray([PTR to FLOAT, INT])
+; Function: VOID quicksort([PTR to FLOAT, INT, INT])
+; Function: INT partition([PTR to FLOAT, INT, INT])
+; Function: INT main([])
+
+; Symbol table main
+; name f type PTR to FLOAT location -4
+; name size type INT location -8
+
+; Symbol table allocarray
+; name size type INT location 12
+; name i type INT location -4
+; name retval type PTR to FLOAT location -8
+
+; Symbol table readarray
+; name size type INT location 12
+; name f type PTR to FLOAT location 16
+; name i type INT location -4
+; name x type FLOAT location -8
+
+; Symbol table quicksort
+; name hi type INT location 12
+; name lo type INT location 16
+; name f type PTR to FLOAT location 20
+; name p type INT location -4
+
+; Symbol table partition
+; name hi type INT location 12
+; name lo type INT location 16
+; name f type PTR to FLOAT location 20
+; name pivot type FLOAT location -4
+; name i type INT location -8
+; name j type INT location -12
+
+; Symbol table printarray
+; name size type INT location 12
+; name f type PTR to FLOAT location 16
+; name i type INT location -4
+
+; Symbol table swap
+; name y type PTR to FLOAT location 12
+; name x type PTR to FLOAT location 16
+; name tmp type FLOAT location -4
+
+; generating code to print ; name querysize type STRING location 0x10000000 value "Enter size: "
+; generating code to print ; name prompt type STRING location 0x10000004 value "Enter number: "
+.section .text
+;Current temp: null
+;IR Code: 
+MV fp, sp
+JR func_main
+HALT
+
+func_main:
+SW fp, 0(sp)
+MV fp, sp
+ADDI sp, sp, -4
+ADDI sp, sp, -8
+SW t1, 0(sp)
+ADDI sp, sp, -4
+SW t2, 0(sp)
+ADDI sp, sp, -4
+SW t3, 0(sp)
+ADDI sp, sp, -4
+SW t4, 0(sp)
+ADDI sp, sp, -4
+SW t5, 0(sp)
+ADDI sp, sp, -4
+SW t6, 0(sp)
+ADDI sp, sp, -4
+SW t7, 0(sp)
+ADDI sp, sp, -4
+SW t8, 0(sp)
+ADDI sp, sp, -4
+SW t9, 0(sp)
+ADDI sp, sp, -4
+SW t10, 0(sp)
+ADDI sp, sp, -4
+SW t11, 0(sp)
+ADDI sp, sp, -4
+SW t12, 0(sp)
+ADDI sp, sp, -4
+SW t13, 0(sp)
+ADDI sp, sp, -4
+SW t14, 0(sp)
+ADDI sp, sp, -4
+SW t15, 0(sp)
+ADDI sp, sp, -4
+SW t16, 0(sp)
+ADDI sp, sp, -4
+SW t17, 0(sp)
+ADDI sp, sp, -4
+SW t18, 0(sp)
+ADDI sp, sp, -4
+SW t19, 0(sp)
+ADDI sp, sp, -4
+SW t20, 0(sp)
+ADDI sp, sp, -4
+SW t21, 0(sp)
+ADDI sp, sp, -4
+SW t22, 0(sp)
+ADDI sp, sp, -4
+SW t23, 0(sp)
+ADDI sp, sp, -4
+LA t1, 0x10000000
+PUTS t1
+GETI t2
+SW t2, -8(fp)
+ADDI t3, fp, -8
+LW t4, 0(t3)
+SW t4, 0(sp)
+ADDI sp, sp, -4
+ADDI sp, sp, -4
+SW ra, 0(sp)
+ADDI sp, sp, -4
+JR func_allocarray
+ADDI sp, sp, 4
+LW ra, 0(sp)
+ADDI sp, sp, 4
+LW t5, 0(sp)
+ADDI sp, sp, 4
+SW t5, -4(fp)
+ADDI t6, fp, -4
+LW t7, 0(t6)
+SW t7, 0(sp)
+ADDI sp, sp, -4
+ADDI t8, fp, -8
+LW t9, 0(t8)
+SW t9, 0(sp)
+ADDI sp, sp, -4
+ADDI sp, sp, -4
+SW ra, 0(sp)
+ADDI sp, sp, -4
+JR func_readarray
+ADDI sp, sp, 4
+LW ra, 0(sp)
+ADDI sp, sp, 4
+ADDI sp, sp, 8
+ADDI t15, fp, -4
+LW t16, 0(t15)
+SW t16, 0(sp)
+ADDI sp, sp, -4
+LI t10, 0
+SW t10, 0(sp)
+ADDI sp, sp, -4
+ADDI t12, fp, -8
+LW t13, 0(t12)
+LI t11, 1
+SUB t14, t13, t11
+SW t14, 0(sp)
+ADDI sp, sp, -4
+ADDI sp, sp, -4
+SW ra, 0(sp)
+ADDI sp, sp, -4
+JR func_quicksort
+ADDI sp, sp, 4
+LW ra, 0(sp)
+ADDI sp, sp, 4
+ADDI sp, sp, 12
+ADDI t17, fp, -4
+LW t18, 0(t17)
+SW t18, 0(sp)
+ADDI sp, sp, -4
+ADDI t19, fp, -8
+LW t20, 0(t19)
+SW t20, 0(sp)
+ADDI sp, sp, -4
+ADDI sp, sp, -4
+SW ra, 0(sp)
+ADDI sp, sp, -4
+JR func_printarray
+ADDI sp, sp, 4
+LW ra, 0(sp)
+ADDI sp, sp, 4
+ADDI sp, sp, 8
+ADDI t21, fp, -4
+LW t22, 0(t21)
+FREE t22
+LI t23, 0
+SW t23, 8(fp)
+J func_ret_main
+func_ret_main:
+ADDI sp, sp, 4
+LW t23, 0(sp)
+ADDI sp, sp, 4
+LW t22, 0(sp)
+ADDI sp, sp, 4
+LW t21, 0(sp)
+ADDI sp, sp, 4
+LW t20, 0(sp)
+ADDI sp, sp, 4
+LW t19, 0(sp)
+ADDI sp, sp, 4
+LW t18, 0(sp)
+ADDI sp, sp, 4
+LW t17, 0(sp)
+ADDI sp, sp, 4
+LW t16, 0(sp)
+ADDI sp, sp, 4
+LW t15, 0(sp)
+ADDI sp, sp, 4
+LW t14, 0(sp)
+ADDI sp, sp, 4
+LW t13, 0(sp)
+ADDI sp, sp, 4
+LW t12, 0(sp)
+ADDI sp, sp, 4
+LW t11, 0(sp)
+ADDI sp, sp, 4
+LW t10, 0(sp)
+ADDI sp, sp, 4
+LW t9, 0(sp)
+ADDI sp, sp, 4
+LW t8, 0(sp)
+ADDI sp, sp, 4
+LW t7, 0(sp)
+ADDI sp, sp, 4
+LW t6, 0(sp)
+ADDI sp, sp, 4
+LW t5, 0(sp)
+ADDI sp, sp, 4
+LW t4, 0(sp)
+ADDI sp, sp, 4
+LW t3, 0(sp)
+ADDI sp, sp, 4
+LW t2, 0(sp)
+ADDI sp, sp, 4
+LW t1, 0(sp)
+MV sp, fp
+LW fp, 0(fp)
+RET
+
+func_allocarray:
+SW fp, 0(sp)
+MV fp, sp
+ADDI sp, sp, -4
+ADDI sp, sp, -8
+SW t1, 0(sp)
+ADDI sp, sp, -4
+SW t2, 0(sp)
+ADDI sp, sp, -4
+SW t3, 0(sp)
+ADDI sp, sp, -4
+SW t4, 0(sp)
+ADDI sp, sp, -4
+SW t5, 0(sp)
+ADDI sp, sp, -4
+SW t6, 0(sp)
+ADDI sp, sp, -4
+SW t7, 0(sp)
+ADDI sp, sp, -4
+SW t8, 0(sp)
+ADDI sp, sp, -4
+SW t9, 0(sp)
+ADDI sp, sp, -4
+SW t10, 0(sp)
+ADDI sp, sp, -4
+SW t11, 0(sp)
+ADDI sp, sp, -4
+SW t12, 0(sp)
+ADDI sp, sp, -4
+SW t13, 0(sp)
+ADDI sp, sp, -4
+SW t14, 0(sp)
+ADDI sp, sp, -4
+SW t15, 0(sp)
+ADDI sp, sp, -4
+SW t16, 0(sp)
+ADDI sp, sp, -4
+SW t17, 0(sp)
+ADDI sp, sp, -4
+SW t18, 0(sp)
+ADDI sp, sp, -4
+SW t19, 0(sp)
+ADDI sp, sp, -4
+SW t20, 0(sp)
+ADDI sp, sp, -4
+SW t21, 0(sp)
+ADDI sp, sp, -4
+SW t22, 0(sp)
+ADDI sp, sp, -4
+SW t23, 0(sp)
+ADDI sp, sp, -4
+FSW f1, 0(sp)
+ADDI sp, sp, -4
+LI t1, 4
+ADDI t2, fp, 12
+LW t3, 0(t2)
+MUL t4, t1, t3
+MALLOC t5, t4
+SW t5, -8(fp)
+LI t6, 0
+SW t6, -4(fp)
+loop_1:
+ADDI t7, fp, -4
+LW t8, 0(t7)
+ADDI t9, fp, 12
+LW t10, 0(t9)
+BGE t8, t10, out_1
+ADDI t15, fp, -8
+LW t16, 0(t15)
+ADDI t12, fp, -4
+LW t13, 0(t12)
+LI t11, 4
+MUL t14, t13, t11
+ADD t17, t16, t14
+FIMM.S f1, 0.0
+FSW f1, 0(t17)
+ADDI t19, fp, -4
+LW t20, 0(t19)
+LI t18, 1
+ADD t21, t20, t18
+SW t21, -4(fp)
+J loop_1
+out_1:
+ADDI t22, fp, -8
+LW t23, 0(t22)
+SW t23, 8(fp)
+J func_ret_allocarray
+func_ret_allocarray:
+ADDI sp, sp, 4
+FLW f1, 0(sp)
+ADDI sp, sp, 4
+LW t23, 0(sp)
+ADDI sp, sp, 4
+LW t22, 0(sp)
+ADDI sp, sp, 4
+LW t21, 0(sp)
+ADDI sp, sp, 4
+LW t20, 0(sp)
+ADDI sp, sp, 4
+LW t19, 0(sp)
+ADDI sp, sp, 4
+LW t18, 0(sp)
+ADDI sp, sp, 4
+LW t17, 0(sp)
+ADDI sp, sp, 4
+LW t16, 0(sp)
+ADDI sp, sp, 4
+LW t15, 0(sp)
+ADDI sp, sp, 4
+LW t14, 0(sp)
+ADDI sp, sp, 4
+LW t13, 0(sp)
+ADDI sp, sp, 4
+LW t12, 0(sp)
+ADDI sp, sp, 4
+LW t11, 0(sp)
+ADDI sp, sp, 4
+LW t10, 0(sp)
+ADDI sp, sp, 4
+LW t9, 0(sp)
+ADDI sp, sp, 4
+LW t8, 0(sp)
+ADDI sp, sp, 4
+LW t7, 0(sp)
+ADDI sp, sp, 4
+LW t6, 0(sp)
+ADDI sp, sp, 4
+LW t5, 0(sp)
+ADDI sp, sp, 4
+LW t4, 0(sp)
+ADDI sp, sp, 4
+LW t3, 0(sp)
+ADDI sp, sp, 4
+LW t2, 0(sp)
+ADDI sp, sp, 4
+LW t1, 0(sp)
+MV sp, fp
+LW fp, 0(fp)
+RET
+
+func_readarray:
+SW fp, 0(sp)
+MV fp, sp
+ADDI sp, sp, -4
+ADDI sp, sp, -8
+SW t1, 0(sp)
+ADDI sp, sp, -4
+SW t2, 0(sp)
+ADDI sp, sp, -4
+SW t3, 0(sp)
+ADDI sp, sp, -4
+SW t4, 0(sp)
+ADDI sp, sp, -4
+SW t5, 0(sp)
+ADDI sp, sp, -4
+SW t6, 0(sp)
+ADDI sp, sp, -4
+SW t7, 0(sp)
+ADDI sp, sp, -4
+SW t8, 0(sp)
+ADDI sp, sp, -4
+SW t9, 0(sp)
+ADDI sp, sp, -4
+SW t10, 0(sp)
+ADDI sp, sp, -4
+SW t11, 0(sp)
+ADDI sp, sp, -4
+SW t12, 0(sp)
+ADDI sp, sp, -4
+SW t13, 0(sp)
+ADDI sp, sp, -4
+SW t14, 0(sp)
+ADDI sp, sp, -4
+SW t15, 0(sp)
+ADDI sp, sp, -4
+SW t16, 0(sp)
+ADDI sp, sp, -4
+SW t17, 0(sp)
+ADDI sp, sp, -4
+SW t18, 0(sp)
+ADDI sp, sp, -4
+FSW f1, 0(sp)
+ADDI sp, sp, -4
+FSW f2, 0(sp)
+ADDI sp, sp, -4
+LI t1, 0
+SW t1, -4(fp)
+loop_2:
+ADDI t2, fp, -4
+LW t3, 0(t2)
+ADDI t4, fp, 12
+LW t5, 0(t4)
+BGE t3, t5, out_2
+LA t6, 0x10000004
+PUTS t6
+GETF f1
+FSW f1, -8(fp)
+ADDI t11, fp, 16
+LW t12, 0(t11)
+ADDI t8, fp, -4
+LW t9, 0(t8)
+LI t7, 4
+MUL t10, t9, t7
+ADD t13, t12, t10
+ADDI t14, fp, -8
+testing line 1446:
+FLW f2, 0(t14)
+FSW f2, 0(t13)
+ADDI t16, fp, -4
+LW t17, 0(t16)
+LI t15, 1
+ADD t18, t17, t15
+SW t18, -4(fp)
+J loop_2
+out_2:
+func_ret_readarray:
+ADDI sp, sp, 4
+FLW f2, 0(sp)
+ADDI sp, sp, 4
+FLW f1, 0(sp)
+ADDI sp, sp, 4
+LW t18, 0(sp)
+ADDI sp, sp, 4
+LW t17, 0(sp)
+ADDI sp, sp, 4
+LW t16, 0(sp)
+ADDI sp, sp, 4
+LW t15, 0(sp)
+ADDI sp, sp, 4
+LW t14, 0(sp)
+ADDI sp, sp, 4
+LW t13, 0(sp)
+ADDI sp, sp, 4
+LW t12, 0(sp)
+ADDI sp, sp, 4
+LW t11, 0(sp)
+ADDI sp, sp, 4
+LW t10, 0(sp)
+ADDI sp, sp, 4
+LW t9, 0(sp)
+ADDI sp, sp, 4
+LW t8, 0(sp)
+ADDI sp, sp, 4
+LW t7, 0(sp)
+ADDI sp, sp, 4
+LW t6, 0(sp)
+ADDI sp, sp, 4
+LW t5, 0(sp)
+ADDI sp, sp, 4
+LW t4, 0(sp)
+ADDI sp, sp, 4
+LW t3, 0(sp)
+ADDI sp, sp, 4
+LW t2, 0(sp)
+ADDI sp, sp, 4
+LW t1, 0(sp)
+MV sp, fp
+LW fp, 0(fp)
+RET
+
+func_quicksort:
+SW fp, 0(sp)
+MV fp, sp
+ADDI sp, sp, -4
+ADDI sp, sp, -4
+SW t1, 0(sp)
+ADDI sp, sp, -4
+SW t2, 0(sp)
+ADDI sp, sp, -4
+SW t3, 0(sp)
+ADDI sp, sp, -4
+SW t4, 0(sp)
+ADDI sp, sp, -4
+SW t5, 0(sp)
+ADDI sp, sp, -4
+SW t6, 0(sp)
+ADDI sp, sp, -4
+SW t7, 0(sp)
+ADDI sp, sp, -4
+SW t8, 0(sp)
+ADDI sp, sp, -4
+SW t9, 0(sp)
+ADDI sp, sp, -4
+SW t10, 0(sp)
+ADDI sp, sp, -4
+SW t11, 0(sp)
+ADDI sp, sp, -4
+SW t12, 0(sp)
+ADDI sp, sp, -4
+SW t13, 0(sp)
+ADDI sp, sp, -4
+SW t14, 0(sp)
+ADDI sp, sp, -4
+SW t15, 0(sp)
+ADDI sp, sp, -4
+SW t16, 0(sp)
+ADDI sp, sp, -4
+SW t17, 0(sp)
+ADDI sp, sp, -4
+SW t18, 0(sp)
+ADDI sp, sp, -4
+SW t19, 0(sp)
+ADDI sp, sp, -4
+SW t20, 0(sp)
+ADDI sp, sp, -4
+SW t21, 0(sp)
+ADDI sp, sp, -4
+SW t22, 0(sp)
+ADDI sp, sp, -4
+SW t23, 0(sp)
+ADDI sp, sp, -4
+SW t24, 0(sp)
+ADDI sp, sp, -4
+SW t25, 0(sp)
+ADDI sp, sp, -4
+SW t26, 0(sp)
+ADDI sp, sp, -4
+SW t27, 0(sp)
+ADDI sp, sp, -4
+ADDI t1, fp, 16
+LW t2, 0(t1)
+ADDI t3, fp, 12
+LW t4, 0(t3)
+BGE t2, t4, out_3
+ADDI t5, fp, 20
+LW t6, 0(t5)
+SW t6, 0(sp)
+ADDI sp, sp, -4
+ADDI t7, fp, 16
+LW t8, 0(t7)
+SW t8, 0(sp)
+ADDI sp, sp, -4
+ADDI t9, fp, 12
+LW t10, 0(t9)
+SW t10, 0(sp)
+ADDI sp, sp, -4
+ADDI sp, sp, -4
+SW ra, 0(sp)
+ADDI sp, sp, -4
+JR func_partition
+ADDI sp, sp, 4
+LW ra, 0(sp)
+ADDI sp, sp, 4
+LW t11, 0(sp)
+ADDI sp, sp, 12
+SW t11, -4(fp)
+ADDI t16, fp, 20
+LW t17, 0(t16)
+SW t17, 0(sp)
+ADDI sp, sp, -4
+ADDI t18, fp, 16
+LW t19, 0(t18)
+SW t19, 0(sp)
+ADDI sp, sp, -4
+ADDI t13, fp, -4
+LW t14, 0(t13)
+LI t12, 1
+SUB t15, t14, t12
+SW t15, 0(sp)
+ADDI sp, sp, -4
+ADDI sp, sp, -4
+SW ra, 0(sp)
+ADDI sp, sp, -4
+JR func_quicksort
+ADDI sp, sp, 4
+LW ra, 0(sp)
+ADDI sp, sp, 4
+ADDI sp, sp, 12
+ADDI t24, fp, 20
+LW t25, 0(t24)
+SW t25, 0(sp)
+ADDI sp, sp, -4
+ADDI t21, fp, -4
+LW t22, 0(t21)
+LI t20, 1
+ADD t23, t22, t20
+SW t23, 0(sp)
+ADDI sp, sp, -4
+ADDI t26, fp, 12
+LW t27, 0(t26)
+SW t27, 0(sp)
+ADDI sp, sp, -4
+ADDI sp, sp, -4
+SW ra, 0(sp)
+ADDI sp, sp, -4
+JR func_quicksort
+ADDI sp, sp, 4
+LW ra, 0(sp)
+ADDI sp, sp, 4
+ADDI sp, sp, 12
+out_3:
+func_ret_quicksort:
+ADDI sp, sp, 4
+LW t27, 0(sp)
+ADDI sp, sp, 4
+LW t26, 0(sp)
+ADDI sp, sp, 4
+LW t25, 0(sp)
+ADDI sp, sp, 4
+LW t24, 0(sp)
+ADDI sp, sp, 4
+LW t23, 0(sp)
+ADDI sp, sp, 4
+LW t22, 0(sp)
+ADDI sp, sp, 4
+LW t21, 0(sp)
+ADDI sp, sp, 4
+LW t20, 0(sp)
+ADDI sp, sp, 4
+LW t19, 0(sp)
+ADDI sp, sp, 4
+LW t18, 0(sp)
+ADDI sp, sp, 4
+LW t17, 0(sp)
+ADDI sp, sp, 4
+LW t16, 0(sp)
+ADDI sp, sp, 4
+LW t15, 0(sp)
+ADDI sp, sp, 4
+LW t14, 0(sp)
+ADDI sp, sp, 4
+LW t13, 0(sp)
+ADDI sp, sp, 4
+LW t12, 0(sp)
+ADDI sp, sp, 4
+LW t11, 0(sp)
+ADDI sp, sp, 4
+LW t10, 0(sp)
+ADDI sp, sp, 4
+LW t9, 0(sp)
+ADDI sp, sp, 4
+LW t8, 0(sp)
+ADDI sp, sp, 4
+LW t7, 0(sp)
+ADDI sp, sp, 4
+LW t6, 0(sp)
+ADDI sp, sp, 4
+LW t5, 0(sp)
+ADDI sp, sp, 4
+LW t4, 0(sp)
+ADDI sp, sp, 4
+LW t3, 0(sp)
+ADDI sp, sp, 4
+LW t2, 0(sp)
+ADDI sp, sp, 4
+LW t1, 0(sp)
+MV sp, fp
+LW fp, 0(fp)
+RET
+
+func_partition:
+SW fp, 0(sp)
+MV fp, sp
+ADDI sp, sp, -4
+ADDI sp, sp, -12
+SW t1, 0(sp)
+ADDI sp, sp, -4
+SW t2, 0(sp)
+ADDI sp, sp, -4
+SW t3, 0(sp)
+ADDI sp, sp, -4
+SW t4, 0(sp)
+ADDI sp, sp, -4
+SW t5, 0(sp)
+ADDI sp, sp, -4
+SW t6, 0(sp)
+ADDI sp, sp, -4
+SW t7, 0(sp)
+ADDI sp, sp, -4
+SW t8, 0(sp)
+ADDI sp, sp, -4
+SW t9, 0(sp)
+ADDI sp, sp, -4
+SW t10, 0(sp)
+ADDI sp, sp, -4
+SW t11, 0(sp)
+ADDI sp, sp, -4
+SW t12, 0(sp)
+ADDI sp, sp, -4
+SW t13, 0(sp)
+ADDI sp, sp, -4
+SW t14, 0(sp)
+ADDI sp, sp, -4
+SW t15, 0(sp)
+ADDI sp, sp, -4
+SW t16, 0(sp)
+ADDI sp, sp, -4
+SW t17, 0(sp)
+ADDI sp, sp, -4
+SW t18, 0(sp)
+ADDI sp, sp, -4
+SW t19, 0(sp)
+ADDI sp, sp, -4
+SW t20, 0(sp)
+ADDI sp, sp, -4
+SW t21, 0(sp)
+ADDI sp, sp, -4
+SW t22, 0(sp)
+ADDI sp, sp, -4
+SW t23, 0(sp)
+ADDI sp, sp, -4
+SW t24, 0(sp)
+ADDI sp, sp, -4
+SW t25, 0(sp)
+ADDI sp, sp, -4
+SW t26, 0(sp)
+ADDI sp, sp, -4
+SW t27, 0(sp)
+ADDI sp, sp, -4
+SW t28, 0(sp)
+ADDI sp, sp, -4
+SW t29, 0(sp)
+ADDI sp, sp, -4
+SW t30, 0(sp)
+ADDI sp, sp, -4
+SW t31, 0(sp)
+ADDI sp, sp, -4
+SW t32, 0(sp)
+ADDI sp, sp, -4
+SW t33, 0(sp)
+ADDI sp, sp, -4
+SW t34, 0(sp)
+ADDI sp, sp, -4
+SW t35, 0(sp)
+ADDI sp, sp, -4
+SW t36, 0(sp)
+ADDI sp, sp, -4
+SW t37, 0(sp)
+ADDI sp, sp, -4
+SW t38, 0(sp)
+ADDI sp, sp, -4
+SW t39, 0(sp)
+ADDI sp, sp, -4
+SW t40, 0(sp)
+ADDI sp, sp, -4
+SW t41, 0(sp)
+ADDI sp, sp, -4
+SW t42, 0(sp)
+ADDI sp, sp, -4
+SW t43, 0(sp)
+ADDI sp, sp, -4
+SW t44, 0(sp)
+ADDI sp, sp, -4
+SW t45, 0(sp)
+ADDI sp, sp, -4
+SW t46, 0(sp)
+ADDI sp, sp, -4
+SW t47, 0(sp)
+ADDI sp, sp, -4
+SW t48, 0(sp)
+ADDI sp, sp, -4
+SW t49, 0(sp)
+ADDI sp, sp, -4
+SW t50, 0(sp)
+ADDI sp, sp, -4
+SW t51, 0(sp)
+ADDI sp, sp, -4
+SW t52, 0(sp)
+ADDI sp, sp, -4
+SW t53, 0(sp)
+ADDI sp, sp, -4
+SW t54, 0(sp)
+ADDI sp, sp, -4
+SW t55, 0(sp)
+ADDI sp, sp, -4
+SW t56, 0(sp)
+ADDI sp, sp, -4
+SW t57, 0(sp)
+ADDI sp, sp, -4
+SW t58, 0(sp)
+ADDI sp, sp, -4
+SW t59, 0(sp)
+ADDI sp, sp, -4
+SW t60, 0(sp)
+ADDI sp, sp, -4
+SW t61, 0(sp)
+ADDI sp, sp, -4
+SW t62, 0(sp)
+ADDI sp, sp, -4
+FSW f1, 0(sp)
+ADDI sp, sp, -4
+FSW f2, 0(sp)
+ADDI sp, sp, -4
+FSW f3, 0(sp)
+ADDI sp, sp, -4
+ADDI t5, fp, 20
+LW t6, 0(t5)
+ADDI t2, fp, 12
+LW t3, 0(t2)
+LI t1, 4
+MUL t4, t3, t1
+ADD t7, t6, t4
+testing line 1446:
+FLW f1, 0(t7)
+FSW f1, -4(fp)
+ADDI t8, fp, 16
+LW t9, 0(t8)
+SW t9, -8(fp)
+ADDI t10, fp, 16
+LW t11, 0(t10)
+SW t11, -12(fp)
+loop_3:
+ADDI t12, fp, -12
+LW t13, 0(t12)
+ADDI t14, fp, 12
+LW t15, 0(t14)
+BGE t13, t15, out_5
+ADDI t20, fp, 20
+LW t21, 0(t20)
+ADDI t17, fp, -12
+LW t18, 0(t17)
+LI t16, 4
+MUL t19, t18, t16
+ADD t22, t21, t19
+testing line 1446:
+FLW f2, 0(t22)
+ADDI t23, fp, -4
+testing line 1446:
+FLW f3, 0(t23)
+FLT.S t42, f2, f3
+BEQ t42, x0, out_4
+ADDI t28, fp, 20
+LW t29, 0(t28)
+ADDI t25, fp, -8
+LW t26, 0(t25)
+LI t24, 4
+MUL t27, t26, t24
+ADD t30, t29, t27
+SW t30, 0(sp)
+ADDI sp, sp, -4
+ADDI t35, fp, 20
+LW t36, 0(t35)
+ADDI t32, fp, -12
+LW t33, 0(t32)
+LI t31, 4
+MUL t34, t33, t31
+ADD t37, t36, t34
+SW t37, 0(sp)
+ADDI sp, sp, -4
+ADDI sp, sp, -4
+SW ra, 0(sp)
+ADDI sp, sp, -4
+JR func_swap
+ADDI sp, sp, 4
+LW ra, 0(sp)
+ADDI sp, sp, 4
+ADDI sp, sp, 8
+ADDI t39, fp, -8
+LW t40, 0(t39)
+LI t38, 1
+ADD t41, t40, t38
+SW t41, -8(fp)
+out_4:
+ADDI t44, fp, -12
+LW t45, 0(t44)
+LI t43, 1
+ADD t46, t45, t43
+SW t46, -12(fp)
+J loop_3
+out_5:
+ADDI t51, fp, 20
+LW t52, 0(t51)
+ADDI t48, fp, -8
+LW t49, 0(t48)
+LI t47, 4
+MUL t50, t49, t47
+ADD t53, t52, t50
+SW t53, 0(sp)
+ADDI sp, sp, -4
+ADDI t58, fp, 20
+LW t59, 0(t58)
+ADDI t55, fp, 12
+LW t56, 0(t55)
+LI t54, 4
+MUL t57, t56, t54
+ADD t60, t59, t57
+SW t60, 0(sp)
+ADDI sp, sp, -4
+ADDI sp, sp, -4
+SW ra, 0(sp)
+ADDI sp, sp, -4
+JR func_swap
+ADDI sp, sp, 4
+LW ra, 0(sp)
+ADDI sp, sp, 4
+ADDI sp, sp, 8
+ADDI t61, fp, -8
+LW t62, 0(t61)
+SW t62, 8(fp)
+J func_ret_partition
+func_ret_partition:
+ADDI sp, sp, 4
+FLW f3, 0(sp)
+ADDI sp, sp, 4
+FLW f2, 0(sp)
+ADDI sp, sp, 4
+FLW f1, 0(sp)
+ADDI sp, sp, 4
+LW t62, 0(sp)
+ADDI sp, sp, 4
+LW t61, 0(sp)
+ADDI sp, sp, 4
+LW t60, 0(sp)
+ADDI sp, sp, 4
+LW t59, 0(sp)
+ADDI sp, sp, 4
+LW t58, 0(sp)
+ADDI sp, sp, 4
+LW t57, 0(sp)
+ADDI sp, sp, 4
+LW t56, 0(sp)
+ADDI sp, sp, 4
+LW t55, 0(sp)
+ADDI sp, sp, 4
+LW t54, 0(sp)
+ADDI sp, sp, 4
+LW t53, 0(sp)
+ADDI sp, sp, 4
+LW t52, 0(sp)
+ADDI sp, sp, 4
+LW t51, 0(sp)
+ADDI sp, sp, 4
+LW t50, 0(sp)
+ADDI sp, sp, 4
+LW t49, 0(sp)
+ADDI sp, sp, 4
+LW t48, 0(sp)
+ADDI sp, sp, 4
+LW t47, 0(sp)
+ADDI sp, sp, 4
+LW t46, 0(sp)
+ADDI sp, sp, 4
+LW t45, 0(sp)
+ADDI sp, sp, 4
+LW t44, 0(sp)
+ADDI sp, sp, 4
+LW t43, 0(sp)
+ADDI sp, sp, 4
+LW t42, 0(sp)
+ADDI sp, sp, 4
+LW t41, 0(sp)
+ADDI sp, sp, 4
+LW t40, 0(sp)
+ADDI sp, sp, 4
+LW t39, 0(sp)
+ADDI sp, sp, 4
+LW t38, 0(sp)
+ADDI sp, sp, 4
+LW t37, 0(sp)
+ADDI sp, sp, 4
+LW t36, 0(sp)
+ADDI sp, sp, 4
+LW t35, 0(sp)
+ADDI sp, sp, 4
+LW t34, 0(sp)
+ADDI sp, sp, 4
+LW t33, 0(sp)
+ADDI sp, sp, 4
+LW t32, 0(sp)
+ADDI sp, sp, 4
+LW t31, 0(sp)
+ADDI sp, sp, 4
+LW t30, 0(sp)
+ADDI sp, sp, 4
+LW t29, 0(sp)
+ADDI sp, sp, 4
+LW t28, 0(sp)
+ADDI sp, sp, 4
+LW t27, 0(sp)
+ADDI sp, sp, 4
+LW t26, 0(sp)
+ADDI sp, sp, 4
+LW t25, 0(sp)
+ADDI sp, sp, 4
+LW t24, 0(sp)
+ADDI sp, sp, 4
+LW t23, 0(sp)
+ADDI sp, sp, 4
+LW t22, 0(sp)
+ADDI sp, sp, 4
+LW t21, 0(sp)
+ADDI sp, sp, 4
+LW t20, 0(sp)
+ADDI sp, sp, 4
+LW t19, 0(sp)
+ADDI sp, sp, 4
+LW t18, 0(sp)
+ADDI sp, sp, 4
+LW t17, 0(sp)
+ADDI sp, sp, 4
+LW t16, 0(sp)
+ADDI sp, sp, 4
+LW t15, 0(sp)
+ADDI sp, sp, 4
+LW t14, 0(sp)
+ADDI sp, sp, 4
+LW t13, 0(sp)
+ADDI sp, sp, 4
+LW t12, 0(sp)
+ADDI sp, sp, 4
+LW t11, 0(sp)
+ADDI sp, sp, 4
+LW t10, 0(sp)
+ADDI sp, sp, 4
+LW t9, 0(sp)
+ADDI sp, sp, 4
+LW t8, 0(sp)
+ADDI sp, sp, 4
+LW t7, 0(sp)
+ADDI sp, sp, 4
+LW t6, 0(sp)
+ADDI sp, sp, 4
+LW t5, 0(sp)
+ADDI sp, sp, 4
+LW t4, 0(sp)
+ADDI sp, sp, 4
+LW t3, 0(sp)
+ADDI sp, sp, 4
+LW t2, 0(sp)
+ADDI sp, sp, 4
+LW t1, 0(sp)
+MV sp, fp
+LW fp, 0(fp)
+RET
+
+func_printarray:
+SW fp, 0(sp)
+MV fp, sp
+ADDI sp, sp, -4
+ADDI sp, sp, -4
+SW t1, 0(sp)
+ADDI sp, sp, -4
+SW t2, 0(sp)
+ADDI sp, sp, -4
+SW t3, 0(sp)
+ADDI sp, sp, -4
+SW t4, 0(sp)
+ADDI sp, sp, -4
+SW t5, 0(sp)
+ADDI sp, sp, -4
+SW t6, 0(sp)
+ADDI sp, sp, -4
+SW t7, 0(sp)
+ADDI sp, sp, -4
+SW t8, 0(sp)
+ADDI sp, sp, -4
+SW t9, 0(sp)
+ADDI sp, sp, -4
+SW t10, 0(sp)
+ADDI sp, sp, -4
+SW t11, 0(sp)
+ADDI sp, sp, -4
+SW t12, 0(sp)
+ADDI sp, sp, -4
+SW t13, 0(sp)
+ADDI sp, sp, -4
+SW t14, 0(sp)
+ADDI sp, sp, -4
+SW t15, 0(sp)
+ADDI sp, sp, -4
+SW t16, 0(sp)
+ADDI sp, sp, -4
+FSW f1, 0(sp)
+ADDI sp, sp, -4
+LI t1, 0
+SW t1, -4(fp)
+loop_4:
+ADDI t2, fp, -4
+LW t3, 0(t2)
+ADDI t4, fp, 12
+LW t5, 0(t4)
+BGE t3, t5, out_6
+ADDI t10, fp, 16
+LW t11, 0(t10)
+ADDI t7, fp, -4
+LW t8, 0(t7)
+LI t6, 4
+MUL t9, t8, t6
+ADD t12, t11, t9
+testing line 1446:
+FLW f1, 0(t12)
+PUTF f1
+ADDI t14, fp, -4
+LW t15, 0(t14)
+LI t13, 1
+ADD t16, t15, t13
+SW t16, -4(fp)
+J loop_4
+out_6:
+func_ret_printarray:
+ADDI sp, sp, 4
+FLW f1, 0(sp)
+ADDI sp, sp, 4
+LW t16, 0(sp)
+ADDI sp, sp, 4
+LW t15, 0(sp)
+ADDI sp, sp, 4
+LW t14, 0(sp)
+ADDI sp, sp, 4
+LW t13, 0(sp)
+ADDI sp, sp, 4
+LW t12, 0(sp)
+ADDI sp, sp, 4
+LW t11, 0(sp)
+ADDI sp, sp, 4
+LW t10, 0(sp)
+ADDI sp, sp, 4
+LW t9, 0(sp)
+ADDI sp, sp, 4
+LW t8, 0(sp)
+ADDI sp, sp, 4
+LW t7, 0(sp)
+ADDI sp, sp, 4
+LW t6, 0(sp)
+ADDI sp, sp, 4
+LW t5, 0(sp)
+ADDI sp, sp, 4
+LW t4, 0(sp)
+ADDI sp, sp, 4
+LW t3, 0(sp)
+ADDI sp, sp, 4
+LW t2, 0(sp)
+ADDI sp, sp, 4
+LW t1, 0(sp)
+MV sp, fp
+LW fp, 0(fp)
+RET
+
+func_swap:
+SW fp, 0(sp)
+MV fp, sp
+ADDI sp, sp, -4
+ADDI sp, sp, -4
+SW t1, 0(sp)
+ADDI sp, sp, -4
+SW t2, 0(sp)
+ADDI sp, sp, -4
+SW t3, 0(sp)
+ADDI sp, sp, -4
+SW t4, 0(sp)
+ADDI sp, sp, -4
+SW t5, 0(sp)
+ADDI sp, sp, -4
+SW t6, 0(sp)
+ADDI sp, sp, -4
+SW t7, 0(sp)
+ADDI sp, sp, -4
+SW t8, 0(sp)
+ADDI sp, sp, -4
+SW t9, 0(sp)
+ADDI sp, sp, -4
+FSW f1, 0(sp)
+ADDI sp, sp, -4
+FSW f2, 0(sp)
+ADDI sp, sp, -4
+FSW f3, 0(sp)
+ADDI sp, sp, -4
+ADDI t1, fp, 16
+LW t2, 0(t1)
+testing line 1446:
+FLW f1, 0(t2)
+FSW f1, -4(fp)
+ADDI t3, fp, 16
+LW t4, 0(t3)
+ADDI t5, fp, 12
+LW t6, 0(t5)
+testing line 1446:
+FLW f2, 0(t6)
+FSW f2, 0(t4)
+ADDI t7, fp, 12
+LW t8, 0(t7)
+ADDI t9, fp, -4
+testing line 1446:
+FLW f3, 0(t9)
+FSW f3, 0(t8)
+func_ret_swap:
+ADDI sp, sp, 4
+FLW f3, 0(sp)
+ADDI sp, sp, 4
+FLW f2, 0(sp)
+ADDI sp, sp, 4
+FLW f1, 0(sp)
+ADDI sp, sp, 4
+LW t9, 0(sp)
+ADDI sp, sp, 4
+LW t8, 0(sp)
+ADDI sp, sp, 4
+LW t7, 0(sp)
+ADDI sp, sp, 4
+LW t6, 0(sp)
+ADDI sp, sp, 4
+LW t5, 0(sp)
+ADDI sp, sp, 4
+LW t4, 0(sp)
+ADDI sp, sp, 4
+LW t3, 0(sp)
+ADDI sp, sp, 4
+LW t2, 0(sp)
+ADDI sp, sp, 4
+LW t1, 0(sp)
+MV sp, fp
+LW fp, 0(fp)
+RET
+
+
+
+.section .strings
+0x10000000 "Enter size: "
+0x10000004 "Enter number: "
+0x10000008 "Sorting ..."
